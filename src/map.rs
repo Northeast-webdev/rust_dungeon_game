@@ -17,19 +17,15 @@ fn generate_map() -> Vec<Vec<&'static str>> {
     let rows = rng.gen_range(10..20);
     let cols = rng.gen_range(10..40);
     let mut map = vec![vec!["·"; cols]; rows];
-    let cloned_map = map.clone();
+    // let cloned_map = map.clone();
+    // let cloned_len = cloned_map.len();
     for row in map.iter_mut() {
         // make the borders walls
         let len = row.len();
-        row[0] = "#";
-        row[len - 1] = "#";
+        row[0] = "█";
+        row[len - 1] = "█";
 
         // make the first and last row full walls
-        if &cloned_map[0] == row || &cloned_map[cloned_map.len() - 1] == row {
-            for tile in row.iter_mut() {
-                *tile = "#";
-            }
-        }
     }
     map
 }
